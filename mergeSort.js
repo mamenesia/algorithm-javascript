@@ -4,7 +4,7 @@ function mergeSort(array) {
   let firstArray = array.slice(0, middleIndex);
   let secondArray = array.slice(middleIndex);
   
-  merge(firstArray, secondArray);
+  return merge(mergeSort(firstArray), mergeSort(secondArray));
 }
 
 function merge(array1, array2) {  
@@ -22,3 +22,6 @@ function merge(array1, array2) {
 
   return result;
 }
+
+mergeSort([6000, 34, 203, 3, 746, 200, 984, 198, 764, 1, 9, 1]);
+mergeSort([100, -20, 40, -30, 16, -100, -101]);
