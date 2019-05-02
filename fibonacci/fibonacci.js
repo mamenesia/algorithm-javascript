@@ -22,3 +22,13 @@ function fibonacci(n) {
 
   return result[n];
 }
+
+
+// Solution no 2 using recursive solution
+function fibonacci(n) {
+  if(n < 2) {
+    return n;
+  }
+
+  return fibonacci(n-1) + fibonacci(n-2);
+}
