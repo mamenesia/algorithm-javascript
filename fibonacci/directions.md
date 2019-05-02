@@ -41,3 +41,30 @@ forms the first ten entries of the fibonacci series.
 
       return fibonacci(n-1) + fibonacci(n-2);
     }
+
+
+// Solution no 3 using memoization solution
+
+    function fibonacci(n) {
+      if(n < 2) {
+        return n;
+      }
+
+      return fibonacci(n-1) + fibonacci(n-2);
+    }
+
+    function memoize(fn) {
+      const cache = {};
+      return function(...args) {
+        if(cache[args]) {
+          return cache[args];
+        }
+
+        const result = fn.apply(this, args);
+        cache[args] = result;
+
+        return result;
+      };
+    }
+
+    const memoizeFibonacci = memoize(fibonacci);
