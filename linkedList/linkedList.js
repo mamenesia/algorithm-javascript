@@ -42,40 +42,47 @@ class LinkedList {
       if(!node.next) {
         return node;
       }
+      node = node.next;
+    }
+  }
 
+  clear() {
+    this.head = null;
+  }
+
+  removeFirst() {
+    if(!this.head) {
+      return;
+    }
+
+    this.head = this.head.next;
+  }
+
+  removeLast() {
+    
+    if(!this.head) {
+      return;
+    } else if(!this.head.next) {
+      previous = null;
+      return;
+    }
+
+    let previous = this.head;
+    let node = this.head.next;
+
+    while(node.next) {
+      previous = node;
       node = node.next;
     }
 
-    clear() {
-      this.head = null;
-    }
+    previous.next = null;
+  }
 
-    removeFirst() {
-      if(!this.head) {
-        return;
-      }
-
-      this.head = this.head.next;
-    }
-
-    removeLast() {
-      
-      if(!this.head) {
-        return;
-      } else if(!this.head.next) {
-        previous = null;
-        return;
-      }
-
-      let previous = this.head;
-      let node = this.head.next;
-
-      while(node.next) {
-        previous = node;
-        node = node.next;
-      }
-
-      previous.next = null;
+  insertLast(data) {
+    if(!this.head) {
+      this.head = new Node(data);
+    } else {
+    this.getLast().next = new Node(data);
     }
   }
 }
