@@ -27,3 +27,9 @@ class Node {
     });
   }
 }
+
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+}
